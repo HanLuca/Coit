@@ -1,3 +1,1 @@
-Service: Replit
-Hosting: Replit
-Main Data: Replit
+Page : coit.kro.kr
