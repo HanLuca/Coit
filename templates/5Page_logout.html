@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form methods='get' id='pageProfile' action={{ url_for("pageLogout") }}>
+        <input class="inputID" type="id" id="logoutID" name="logoutID" placeholder="Enter your ID to logout" autocomplete="off" onkeyup="this.value = this.value.replace(/[^a-zA-Z-_0-9]/g,'')" required><br>
+        <input class="inputPW" type="password" id="logoutPW" name="logoutPW" placeholder="Enter your password to logout" autocomplete="off" onkeyup="this.value = this.value.replace(/[^a-zA-Z-_0-9]/g,'')" required><br>
+
+        <button type="submit" class="buttonLogoutSend">Logout</button>
+    </form>
+
+</body>
+</html>

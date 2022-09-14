@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/_Page_state.css') }}">
+
+    <title>{{ title }}</title>
+</head>
+<body>
+
+    <span class="indexAlign">{{ state }}</span>
+    <form methods='post' id='pageState' action={{ back }}>
+        <button type="submit" class="button">{{ backName }}</button>
+    </form>
+
+</body>
+</html>

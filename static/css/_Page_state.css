@@ -1,0 +1,25 @@
+body {
+    background-color: black;
+
+    color: white;
+    font-weight: bold;
+    text-align: center;
+
+    user-select: none; /* Drag Ban - user-select: text;*/
+}
+
+.indexAlign {
+    position: absolute;
+    top: 30%; left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.button {
+    background-color: green; color: white;
+    border: none; border-radius: 10px;
+    height: 30px; width: 100px; cursor: pointer;
+
+    position: absolute;
+    top: 45%; left: 50%;
+    transform: translate(-50%,-50%);
+}

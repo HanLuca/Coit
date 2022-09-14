@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/1Page_home.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='image/Icon.png') }}">
+
+    <title>{{ title }}</title>
+</head>
+<body>
+
+    <span class="indexAlign">Text Index</span>
+
+    <form methods='post' id='pageHome' action={{ url_for('pageLogin') }}>
+        <button type="submit" class="buttonLogin">Login</button>
+    </form>
+    <form methods='post' id='pageHome' action={{ url_for('pageRegister') }}>
+        <button type="submit" class="buttonRegister">Register</button>
+    </form>
+
+</body>
+</html>
