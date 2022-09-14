@@ -6,6 +6,15 @@ from datetime import datetime
 load_dotenv()
 app = Flask(__name__)
 
+# File Make / 기본 파일 생성
+# os.mkdir("userInfo/")
+# data = {
+#     "host=?usersID" : []
+# }
+
+# with open('setting.json', 'w') as outfile:
+#     json.dump(data, outfile, indent=4)
+
 # Home / 홈
 @app.route('/', methods=['get'])
 def pageHome():
