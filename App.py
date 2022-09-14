@@ -83,10 +83,10 @@ def pageLogin():
         with open('setting.json', 'r') as f: 
             programData = json.load(f)
 
-        with open(f'userInfo/{_userID_}.json') as f:
-            userData = json.load(f)
-
         if _userID_ in programData['host=?usersID']:
+            with open(f'userInfo/{_userID_}.json') as f:
+                userData = json.load(f)
+
             if userData['login?'] == False:
                 if _userPW_ == userData['password']:
                     userData['login?'] = True
