@@ -109,28 +109,30 @@ def pageLogout():
     _userPW_ = request.args.get('logoutPW')
 
     if _userID_ == None or _userPW_ == None:
-        return render_template('5Page_logout.html')
-    with open('setting.json', 'r') as f: 
-        programData = json.load(f)
+        return render_template('5Page_logout.html', title = 'Logout')
 
-    with open(f'userInfo/{_userID_}.json') as f:
-        userData = json.load(f)
+    else:
+        with open('setting.json', 'r') as f: 
+            programData = json.load(f)
 
-    if _userID_ in programData['host=?usersID']:
-        if userData['login?'] == True:
-            if _userPW_ == userData['password']:
-                userData['login?'] = False
-                with open(f'userInfo/{_userID_}.json', 'w') as outfile:
-                    json.dump(userData, outfile, indent=4)
+        with open(f'userInfo/{_userID_}.json') as f:
+            userData = json.load(f)
+        
+        if _userID_ in programData['host=?usersID']:
+            if userData['login?'] == True:
+                if _userPW_ == userData['password']:
+                    userData['login?'] = False
+                    with open(f'userInfo/{_userID_}.json', 'w') as outfile:
+                        json.dump(userData, outfile, indent=4)
 
-                return render_template('_Page_state.html', title = 'Error', state = 'Done Logout', backName = 'Home', back = url_for('pageHome'))
+                    return render_template('_Page_state.html', title = 'Error', state = 'Done Logout', backName = 'Home', back = url_for('pageHome'))
 
+                else:
+                    return 'None'
             else:
                 return 'None'
         else:
             return 'None'
-    else:
-        return 'None'
 
 
 # Profile / 프로필
