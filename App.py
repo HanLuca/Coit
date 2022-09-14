@@ -134,13 +134,18 @@ def pageLogout():
 
 
 # Profile / 프로필
-@app.route('/profile<userId><userPw>', methods=['get'])
+@app.route('/profile/<userId>/<userPw>', methods=['get'])
 def pageProfile(userId, userPw):
     with open(f'userInfo/{userId}.json') as f:
         userData = json.load(f)
         
     if userData['login?'] == True:
-        return render_template('4Page_profile.html', title = 'Profile - ' + userData['id'])
+        return render_template(
+            '4Page_profile.html', title = 'Profile - ' + userData['id'],
+            userID = userId, userPW = userPw, userEmail = userData['email'], 
+            userCoin = userData['coin'], userExp = userData['exp'], userLevel = userData['level'],
+            userJointime = userData['joinTime']
+        )
 
     else:
         return 'None'

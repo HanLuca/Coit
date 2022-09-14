@@ -8,6 +8,18 @@
 </head>
 <body>
     
+    <span>
+        ID :: {{ userID }} <br>
+        PW :: {{ userPW }} <br>
+        Email :: {{ userEmail }} <br><br>
+
+        Coin :: {{ userCoin }} <br>
+        Exp :: {{ userExp }} <br>
+        Level :: {{ userLevel }} <br><br>
+
+        Join :: {{ userJointime }} <br>
+    </span>
+
     <form methods='get' id='pageProfile' action={{ url_for("pageLogout") }}>
         <button type="submit" class="buttonLogoutSend">Logout</button>
     </form>
