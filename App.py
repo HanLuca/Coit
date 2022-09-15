@@ -29,7 +29,7 @@ def pageRegister():
     _newUserEM_ = request.args.get('registerEmail')
 
     if _newUserID_ == None or _newUserPW_ == None:
-        return render_template('2Page_register.html', title = 'Register your Account!')
+        return render_template('2Page_register.html', title = 'Register your Account!', URL = url_for('pageHome'))
 
     else:
         with open('setting.json', 'r') as f: 
@@ -77,7 +77,7 @@ def pageLogin():
     _userPW_ = request.args.get('loginPW')
     
     if _userID_ == None or _userPW_ == None:
-        return render_template('3Page_login.html', title = 'Login!')
+        return render_template('3Page_login.html', title = 'Login!', URL = url_for('pageHome'))
 
     else:
         with open('setting.json', 'r') as f: 
@@ -109,16 +109,16 @@ def pageLogout():
     _userPW_ = request.args.get('logoutPW')
 
     if _userID_ == None or _userPW_ == None:
-        return render_template('5Page_logout.html', title = 'Logout')
+        return render_template('5Page_logout.html', title = 'Logout', URL = url_for('pageHome'))
 
     else:
         with open('setting.json', 'r') as f: 
             programData = json.load(f)
-
-        with open(f'userInfo/{_userID_}.json') as f:
-            userData = json.load(f)
         
         if _userID_ in programData['host=?usersID']:
+            with open(f'userInfo/{_userID_}.json') as f:
+                userData = json.load(f)
+
             if userData['login?'] == True:
                 if _userPW_ == userData['password']:
                     userData['login?'] = False
@@ -128,11 +128,11 @@ def pageLogout():
                     return render_template('_Page_state.html', title = 'Error', state = 'Done Logout', backName = 'Home', back = url_for('pageHome'))
 
                 else:
-                    return 'None'
+                    return render_template('_Page_state.html', title = 'Error', state = 'You entered wrong id or password.', backName = 'Profile', back = url_for('pageProfile', userId = _userID_, userPw = _userPW_))
             else:
-                return 'None'
+                return render_template('_Page_state.html', title = 'Error', state = 'You logout already.', backName = 'Home', back = url_for('pageHome'))
         else:
-            return 'None'
+            return render_template('_Page_state.html', title = 'Error', state = 'This account is not register.', backName = 'Home', back = url_for('pageHome'))
 
 
 # Profile / 프로필
@@ -144,9 +144,9 @@ def pageProfile(userId, userPw):
     if userData['login?'] == True:
         return render_template(
             '4Page_profile.html', title = 'Profile - ' + userData['id'],
-            userID = userId, userPW = userPw, userEmail = userData['email'], 
+            userID = userId, userPW = userPw, sUserPw = '*' * int(len(userPw)),userEmail = userData['email'], 
             userCoin = userData['coin'], userExp = userData['exp'], userLevel = userData['level'],
-            userJointime = userData['joinTime']
+            userJointime = userData['joinTime'], URL = url_for('pageHome')
         )
 
     else:

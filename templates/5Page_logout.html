@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/5Page_logout.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='image/Icon.png') }}">
 
     <title>{{ title }}</title>
 </head>
@@ -15,6 +16,9 @@
         <input class="inputPW" type="password" id="logoutPW" name="logoutPW" placeholder="Enter your password to logout" autocomplete="off" onkeyup="this.value = this.value.replace(/[^a-zA-Z-_0-9]/g,'')" required><br>
 
         <button type="submit" class="buttonLogoutSend">Logout</button>
+    </form>
+    <form methods='get' id='pageLogout' action={{ URL }}>
+        <button type="submit" class="buttonBack">Back</button>
     </form>
 
 </body>

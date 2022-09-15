@@ -13,10 +13,10 @@
 
     <span class="indexAlign">Text Index</span>
 
-    <form methods='post' id='pageHome' action={{ url_for('pageLogin') }}>
+    <form methods='get' id='pageHome' action={{ url_for('pageLogin') }}>
         <button type="submit" class="buttonLogin">Login</button>
     </form>
-    <form methods='post' id='pageHome' action={{ url_for('pageRegister') }}>
+    <form methods='get' id='pageHome' action={{ url_for('pageRegister') }}>
         <button type="submit" class="buttonRegister">Register</button>
     </form>
 

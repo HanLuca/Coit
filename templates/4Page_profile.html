@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/4Page_profile.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='image/Icon.png') }}">
 
     <title>{{ title }}</title>
 </head>
@@ -12,7 +13,7 @@
     
     <span>
         ID :: {{ userID }} <br>
-        PW :: {{ userPW }} <br>
+        PW :: {{ sUserPw }} <br>
         Email :: {{ userEmail }} <br><br>
 
         Coin :: {{ userCoin }} <br>
@@ -24,6 +25,9 @@
 
     <form methods='get' id='pageProfile' action={{ url_for("pageLogout") }}>
         <button type="submit" class="buttonLogoutSend">Logout</button>
+    </form>
+    <form methods='get' id='pageProfile' action={{ URL }}>
+        <button type="submit" class="buttonBack">Home</button>
     </form>
 
 </body>
