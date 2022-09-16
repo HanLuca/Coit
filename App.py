@@ -49,7 +49,7 @@ def pageRegister():
                 json.dump(data, outfile, indent=4)
 
             # Save User Data / 유저 데이터 저장
-            joinTime = str(datetime.now())
+            joinTime = str(datetime.now().date())
 
             data = {
                 "id" : _newUserID_,
@@ -59,8 +59,8 @@ def pageRegister():
 
                 "coin" : 10,
                 "exp" : 0,
-                "level" : 1,
-                "joinTime" : joinTime
+                "level" : 1,    
+                "joinTime" : joinTime,
             }
 
             with open(f'userInfo/{_newUserID_}.json', 'w') as outfile:
@@ -138,19 +138,28 @@ def pageLogout():
 # Profile / 프로필
 @app.route('/profile/<userId>/<userPw>', methods=['get'])
 def pageProfile(userId, userPw):
-    with open(f'userInfo/{userId}.json') as f:
-        userData = json.load(f)
-        
-    if userData['login?'] == True:
-        return render_template(
-            '4Page_profile.html', title = 'Profile - ' + userData['id'],
-            userID = userId, userPW = userPw, sUserPw = '*' * int(len(userPw)),userEmail = userData['email'], 
-            userCoin = userData['coin'], userExp = userData['exp'], userLevel = userData['level'],
-            userJointime = userData['joinTime'], URL = url_for('pageHome')
-        )
+    with open('setting.json', 'r') as f: 
+        programData = json.load(f)
+
+    if userId in programData['host=?usersID']:
+        with open(f'userInfo/{userId}.json') as f:
+            userData = json.load(f)
+            
+        if userData['login?'] == True:
+            return render_template(
+                '4Page_profile.html', title = 'Profile - ' + userData['id'],
+                userID = userId, userPW = userPw, sUserPw = '*' * int(len(userPw)),userEmail = userData['email'], 
+                userCoin = userData['coin'], userExp = userData['exp'], userLevel = userData['level'],
+                userJointime = userData['joinTime'], URL = url_for('pageHome'), userProfileUrl = None
+            )
+
+        else:
+            return render_template('_Page_state.html', title = 'Error', state = 'Not Login', backName = 'Home', back = url_for('pageHome'))
 
     else:
-        return 'None'
+        return render_template('_Page_state.html', title = 'Error', state = 'No user.', backName = 'Home', back = url_for('pageHome'))
+
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080, debug=True)
