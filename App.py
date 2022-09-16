@@ -159,6 +159,10 @@ def pageProfile(userId, userPw):
     else:
         return render_template('_Page_state.html', title = 'Error', state = 'No user.', backName = 'Home', back = url_for('pageHome'))
 
+# Manger / 메니저 페이지
+@app.route('/manger', methods=['get'])
+def pageManger():
+    return render_template('6Page_manger.html', title = 'M', URL = url_for('pageHome')) 
 
 
 if __name__ == '__main__':

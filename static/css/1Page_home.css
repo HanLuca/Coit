@@ -8,6 +8,15 @@ body {
     user-select: none; /* Drag Ban - user-select: text;*/
 }
 
+.manger {
+    height: 30px; width: 30px;
+    border-radius: 20px;
+
+    position: absolute;
+    top: 5%; left: 98%;
+    transform: translate(-50%,-50%);
+}
+
 .indexAlign {
     position: absolute;
     top: 30%; left: 50%;
