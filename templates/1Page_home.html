@@ -10,9 +10,9 @@
     <title>{{ title }}</title>
 </head>
 <body>
-    <a href="{{ url_for('pageManger') }}"><img class="manger" src="{{ url_for('static', filename='image/Manger.png') }}"></a>
+    <a href="{{ url_for('pageManger') }}"><img class="manger" src="{{ url_for('static', filename='image/Manger.svg') }}"></a>
 
-    <span class="indexAlign">Text Index</span>
+    <span class="indexAlign">Hello! Welcome to COIT</span>
 
     <form methods='get' id='pageHome' action={{ url_for('pageLogin') }}>
         <button type="submit" class="buttonLogin">Login</button>

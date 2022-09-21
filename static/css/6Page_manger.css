@@ -1,9 +1,7 @@
 body {
     background-color: black;
 
-    color: white;
-    text-align: center;
-
+    color: white; text-align: center;
     user-select: none; /* Drag Ban - user-select: text;*/
 }
 
@@ -17,12 +15,33 @@ body {
     transform: translate(-50%,-50%);
 }
 
-/* Box */
-.boxDeving {
-    border: 1px solid #151515; background-color: #151515;
-    width: 1000px; height: 500px; border-radius: 20px;
-
-    position: absolute; color: white;
-    top: 40%; left: 50%;
-    transform: translate(-50%,-50%);
+.noticeIndex {
+    position: relative; top: 30px;
+    width: 160px; height: 60px;
 }
+
+/* Box - Notice */
+.noticeBox {
+    border: 3px solid #151515;
+    border-radius: 10px; height: 570px;
+}
+
+/* Notice / 공지작성 필요요소 */
+
+    /* Text / 텍스트 */
+    .bold {
+        font-weight: bold;
+    }
+
+    /* Color / 컬러 */
+    .green {
+        color: green;
+    }
+
+    .red {
+        color: red;
+    }
+    
+    .blue {
+        color: blue;
+    }
