@@ -1,19 +1,13 @@
+# Module Import / 모듈 정의
 from flask import Flask, url_for, session, render_template, request, redirect
 from dotenv import load_dotenv
-import json, os, random, time
 from datetime import datetime
+
+import json, os, random, time
+
 
 load_dotenv()
 app = Flask(__name__)
-
-# File Make / 기본 파일 생성
-# os.mkdir("userInfo/")
-# data = {
-#     "host=?usersID" : []
-# }
-
-# with open('setting.json', 'w') as outfile:
-#     json.dump(data, outfile, indent=4)
 
 # Home / 홈
 @app.route('/', methods=['get'])
@@ -28,9 +22,9 @@ def pageRegister():
     _newUserPW_ = request.args.get('registerPW')
     _newUserEM_ = request.args.get('registerEmail')
 
-    if _newUserID_ == None or _newUserPW_ == None:
+    if _newUserID_ == None or _newUserPW_ == None: 
         return render_template('2Page_register.html', title = 'Register your Account!', URL = url_for('pageHome'))
-
+        
     else:
         with open('setting.json', 'r') as f: 
             programData = json.load(f)
@@ -56,6 +50,7 @@ def pageRegister():
                 "password" : _newUserPW_,
                 "email" : _newUserEM_,
                 "login?" : False,
+                "code" : False,
 
                 "coin" : 10,
                 "exp" : 0,
@@ -162,7 +157,7 @@ def pageProfile(userId, userPw):
 # Manger / 메니저 페이지
 @app.route('/manger', methods=['get'])
 def pageManger():
-    return render_template('6Page_manger.html', title = 'M', URL = url_for('pageHome')) 
+    return render_template('6Page_manger.html', title = 'M', back = url_for('pageHome')) 
 
 
 if __name__ == '__main__':
