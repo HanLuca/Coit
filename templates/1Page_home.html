@@ -10,14 +10,14 @@
     <title>{{ title }}</title>
 </head>
 <body>
-    <a href="{{ url_for('pageManger') }}"><img class="manger" src="{{ url_for('static', filename='image/Manger.svg') }}"></a>
+    <a href="{{ url_for('manage.pageManger') }}"><img class="manger" src="{{ url_for('static', filename='image/Manger.svg') }}"></a>
 
     <span class="indexAlign">Hello! Welcome to COIT</span>
 
-    <form methods='get' id='pageHome' action={{ url_for('pageLogin') }}>
+    <form methods='get' id='pageHome' action="{{ url_for('accountLogin.pageLogin') }}">
         <button type="submit" class="buttonLogin">Login</button>
     </form>
-    <form methods='get' id='pageHome' action={{ url_for('pageRegister') }}>
+    <form methods='get' id='pageHome' action="{{ url_for('accountRegister.pageRegister') }}">
         <button type="submit" class="buttonRegister">Register</button>
     </form>
 

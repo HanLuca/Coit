@@ -11,13 +11,13 @@
 </head>
 <body>
     
-    <form methods='get' id='pageLogin' action={{ url_for("pageLogin") }}>
+    <form methods='get' id='pageLogin' action="{{ url_for('accountLogin.pageLogin') }}">
         <input class="inputID" type="id" id="loginID" name="loginID" placeholder="Enter your login ID" autocomplete="off" onkeyup="this.value = this.value.replace(/[^a-zA-Z-_0-9]/g,'')" required><br>
         <input class="inputPW" type="password" id="loginPW" name="loginPW" placeholder="Enter your login password" autocomplete="off" onkeyup="this.value = this.value.replace(/[^a-zA-Z-_0-9]/g,'')" required><br>
         
         <button type="submit" class="buttonLoginSend">Login</button>
     </form>
-    <form methods='get' id='pageLogin' action={{ URL }}>
+    <form methods='get' id='pageLogin' action="{{ URL }}">
         <button type="submit" class="buttonBack">Back</button>
     </form>
 

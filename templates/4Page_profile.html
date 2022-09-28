@@ -19,10 +19,7 @@
     <span class="idText">{{ userID }}</span>
     <span class="stateText">{{ userJointime }}</span>
 
-    <!-- <form methods='get' id='pageProfile' action={{ URL }}>
-        <button type="submit" class="buttonBack">Home</button>
-    </form> -->
-    <form methods='get' id='pageProfile' action={{ url_for("pageLogout") }}>
+    <form methods='get' id='pageProfile' action="{{ url_for('accountLogin.pageLogout') }}">
         <button type="submit" class="buttonLogoutSend">Logout</button>
     </form>
 
