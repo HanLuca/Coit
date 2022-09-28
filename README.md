@@ -19,3 +19,10 @@ COIT ( Korea ) - https://coit.kro.kr
 > 1. Default page configuration settings
 > 2. code stabilization work
 > ```
+
+### ⓥ Dev 0 . 0 . 02 ( 개발버전 0 . 0 . 02 )
+> ```
+> Update Date : ???
+> 
+> Please look forward to
+> ```
